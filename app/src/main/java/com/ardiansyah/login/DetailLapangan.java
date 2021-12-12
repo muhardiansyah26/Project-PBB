@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,6 +31,7 @@ public class DetailLapangan extends AppCompatActivity {
         txtHarga=findViewById(R.id.getHarga);
         ImageView txtGambar=findViewById(R.id.getGambar);
         Button btnVideo = findViewById(R.id.btnVideo);
+        Button btnPesan =findViewById(R.id.btnPesan);
 
         Bundle extra = getIntent().getExtras();
         String namaLapangan=extra.getString(KEY_NAMA);
@@ -62,6 +64,12 @@ public class DetailLapangan extends AppCompatActivity {
 
             ft.replace(R.id.container1, obj);
             ft.commit();
+        });
+
+        btnPesan.setOnClickListener(v -> {
+            Intent intent = new Intent(DetailLapangan.this,FormPesan.class);
+            intent.putExtra("namaLapangan",extra.getString(KEY_NAMA));
+            startActivity(intent);
         });
 
     }

@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_vertical"
     tools:context=".FormPesan">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="FORM PEMESANAN"
+        android:gravity="center"
+        android:textSize="30dp"/>
+    <EditText
+        android:id="@+id/teamname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Team"
+        android:layout_marginHorizontal="40dp"/>
+    <EditText
+        android:id="@+id/user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Lengkap"
+        android:layout_marginHorizontal="40dp"/>
+    <TextView
+        android:id="@+id/namaLapangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lapangan"
+        android:textSize="20dp"
+        android:layout_marginHorizontal="40dp"/>
+    <EditText
+        android:id="@+id/tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tanggal"
+        android:inputType="date"
+        android:layout_marginHorizontal="40dp"/>
+    <EditText
+        android:id="@+id/jam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Waktu"
+        android:inputType="time"
+        android:layout_marginHorizontal="40dp"/>
+    <Button
+        android:id="@+id/btnPemesanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PESAN"/>
+
+
+</LinearLayout>
