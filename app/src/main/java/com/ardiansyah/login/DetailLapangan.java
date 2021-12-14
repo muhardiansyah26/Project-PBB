@@ -69,6 +69,7 @@ public class DetailLapangan extends AppCompatActivity {
         btnPesan.setOnClickListener(v -> {
             Intent intent = new Intent(DetailLapangan.this,FormPesan.class);
             intent.putExtra("namaLapangan",extra.getString(KEY_NAMA));
+            intent.putExtra("namaHarga",extra.getString(KEY_HARGA));
             startActivity(intent);
         });
 

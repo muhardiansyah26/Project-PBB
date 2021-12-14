@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Login"
         android:usesCleartextTraffic="true">
-        <activity android:name=".HalamanPemesanan"></activity>
+        <activity android:name=".HasilPemesanan"></activity>
+        <activity android:name=".HalamanPemesanan" />
         <activity android:name=".FormPesan" />
         <activity android:name=".DetailLapangan" />
         <activity android:name=".HalamanUtama" />

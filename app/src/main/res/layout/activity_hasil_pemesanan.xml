@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".HasilPemesanan">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BUKTI PEMESANAN"
+        android:textSize="30dp"/>
+    <TextView
+        android:id="@+id/hslTeam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <TextView
+        android:id="@+id/hslNama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <TextView
+        android:id="@+id/hslLapangan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <TextView
+        android:id="@+id/hslTanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <TextView
+        android:id="@+id/hslJam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <TextView
+        android:id="@+id/hslHarga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="nama"/>
+    <Button
+        android:id="@+id/btnHasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CEK"/>
+
+</LinearLayout>

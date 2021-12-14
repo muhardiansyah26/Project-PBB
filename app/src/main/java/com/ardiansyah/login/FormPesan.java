@@ -62,7 +62,13 @@ public class FormPesan extends AppCompatActivity {
                                 String result = putData.getResult();
                                 if (result.equals("Pemesanan Berhasil")){
                                     Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), HalamanPemesanan.class);
+                                    Intent intent = new Intent(getApplicationContext(), HasilPemesanan.class);
+                                    intent.putExtra("teamname",teamname);
+                                    intent.putExtra("username",username);
+                                    intent.putExtra("lapangan",lapangan);
+                                    intent.putExtra("tanggal",tanggal);
+                                    intent.putExtra("jam",jam);
+                                    intent.putExtra("harga",extra.getString("namaHarga"));
                                     startActivity(intent);
                                     finish();
                                 }
