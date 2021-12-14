@@ -56,7 +56,7 @@ public class FormPesan extends AppCompatActivity {
                         data[2] = lapangan;
                         data[3] = tanggal;
                         data[4] = jam;
-                        PutData putData = new PutData("http://192.168.43.133/futsal/pesan.php", "POST", field, data);
+                        PutData putData = new PutData("https://pemesananfutsal.domcloud.io/pesan.php", "POST", field, data);
                         if (putData.startPut()) {
                             if (putData.onComplete()) {
                                 String result = putData.getResult();
