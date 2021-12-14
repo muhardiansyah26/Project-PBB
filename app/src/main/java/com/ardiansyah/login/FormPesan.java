@@ -62,7 +62,7 @@ public class FormPesan extends AppCompatActivity {
                                 String result = putData.getResult();
                                 if (result.equals("Pemesanan Berhasil")){
                                     Toast.makeText(getApplicationContext(),result,Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), HalamanUtama.class);
+                                    Intent intent = new Intent(getApplicationContext(), HalamanPemesanan.class);
                                     startActivity(intent);
                                     finish();
                                 }

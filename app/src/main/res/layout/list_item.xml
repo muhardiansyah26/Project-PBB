@@ -1,47 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="5dp">
 
-    <androidx.cardview.widget.CardView
+    <ImageView
+        android:src="@drawable/gambar1"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="5dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/textTeamname"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="5dp">
+            android:text="Tes"
+            />
 
-            <TextView
-                android:id="@+id/textTeamname"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:id="@+id/textUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="Merk"/>
+        <TextView
+            android:id="@+id/textLapangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cek"
+            />
+        <TextView
+            android:id="@+id/textTanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="satu"/>
 
-            <TextView
-                android:id="@+id/textUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:text="Merk"
-                android:textSize="25sp" />
-            <TextView
-                android:id="@+id/textLapangan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
-            <TextView
-                android:id="@+id/textTanggal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

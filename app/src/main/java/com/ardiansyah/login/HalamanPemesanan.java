@@ -1,12 +1,18 @@
 package com.ardiansyah.login;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -20,63 +26,137 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public class HalamanPemesanan extends AppCompatActivity {
-    private RecyclerView lvlapangan;
 
-    private RequestQueue requestQueue;
-    private StringRequest stringRequest;
 
-    ArrayList<HashMap<String, String>> list_data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_halaman_pemesanan);
+        ambil_data();
 
-        String url = "http://192.168.1.33/futsal/getData.php";
+    }
+    void ambil_data()
+    {
+        String link="https://pemesananfutsal.domcloud.io/getData.php";
+        StringRequest respon=new StringRequest(
+                Request.Method.POST,
+                link,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            JSONArray jsonArray = jsonObject.getJSONArray("hasil");
+                            ArrayList<Get_Data> list_data;
+                            list_data=new ArrayList<>();
 
-        lvlapangan = (RecyclerView) findViewById(R.id.lvlapangan);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        lvlapangan.setLayoutManager(llm);
+                            for (int i=0; i<jsonArray.length(); i++ )
+                            {
+                                JSONObject hasil=jsonArray.getJSONObject(i);
+                                String team = hasil.getString("teamname");
+                                String name = hasil.getString("username");
+                                String lapangan = hasil.getString("lapangan");
+                                String tanggal = hasil.getString("tanggal");
 
-        requestQueue = Volley.newRequestQueue(HalamanPemesanan.this);
+                                list_data.add(new Get_Data(
+                                        team,
+                                        name,
+                                        lapangan,
+                                        tanggal
+                                ));
+                            }
+                            ListView listView=findViewById(R.id.list);
+                            Custom_adapter adapter=new Custom_adapter(HalamanPemesanan.this, list_data);
+                            listView.setAdapter(adapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-        list_data = new ArrayList<HashMap<String, String>>();
-
-        stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                Log.d("response ", response);
-                try {
-                    JSONObject jsonObject = new JSONObject(response);
-                    JSONArray jsonArray = jsonObject.getJSONArray("lapangan");
-                    for (int a = 0; a < jsonArray.length(); a++) {
-                        JSONObject json = jsonArray.getJSONObject(a);
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        map.put("id", json.getString("id"));
-                        map.put("teamname", json.getString("teamname"));
-                        map.put("username", json.getString("username"));
-                        map.put("lapangan", json.getString("lapangan"));
-                        map.put("tanggal", json.getString("tanggal"));
-                        list_data.add(map);
-                        AdapterList adapter = new AdapterList(HalamanPemesanan.this, list_data);
-                        lvlapangan.setAdapter(adapter);
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(HalamanPemesanan.this, error.getMessage(),Toast.LENGTH_SHORT).show();
+
+                    }
                 }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(HalamanPemesanan.this, error.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        );
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(respon);
+    }
+}
 
-        requestQueue.add(stringRequest);
+class Get_Data{
+    String team="", nama="", lapangan="", tanggal="";
+    Get_Data(String team, String nama, String lapangan, String tanggal)
+    {
+        this.team=team;
+        this.nama=nama;
+        this.lapangan=lapangan;
+        this.tanggal=tanggal;
+    }
 
+    public String getTeam() {
+        return team;
+    }
 
+    public String getNama() {
+        return nama;
+    }
+
+    public String getLapangan() {
+        return lapangan;
+    }
+
+    public String getTanggal() {
+        return tanggal;
+    }
+}
+
+class Custom_adapter extends BaseAdapter
+{
+    Context context;
+    LayoutInflater layoutInflater;
+    ArrayList<Get_Data>model;
+    Custom_adapter(Context context, ArrayList<Get_Data> model)
+    {
+        layoutInflater=LayoutInflater.from(context);
+        this.context=context;
+        this.model=model;
+    }
+
+    @Override
+    public int getCount() {
+        return model.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return model.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view=layoutInflater.inflate(R.layout.list_item, null);
+        TextView textTeamname, textUsername , textLapangan, textTanggal;
+        textTeamname = view.findViewById(R.id.textTeamname);
+        textUsername=view.findViewById(R.id.textUsername);
+        textLapangan=view.findViewById(R.id.textLapangan);
+        textTanggal=view.findViewById(R.id.textTanggal);
+
+        textTeamname.setText(model.get(position).getTeam());
+        textUsername.setText(model.get(position).getNama());
+        textLapangan.setText(model.get(position).getLapangan());
+        textTanggal.setText(model.get(position).getTanggal());
+        return view;
     }
 }

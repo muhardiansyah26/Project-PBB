@@ -22,6 +22,11 @@ public class HalamanUtama extends AppCompatActivity {
         Button btnMenu1 = findViewById(R.id.btnMenu1);
         Button btnMenu2 = findViewById(R.id.btnMenu2);
         Button btnMenu3 = findViewById(R.id.btnMenu3);
+        Button btnCek = findViewById(R.id.btncek);
+
+        btnCek.setOnClickListener(v -> {
+            startActivity(new Intent(HalamanUtama.this, HalamanPemesanan.class));
+        });
 
         btnMenu1.setOnClickListener(v -> {
             Intent menu1 = new Intent(HalamanUtama.this, DetailLapangan.class);

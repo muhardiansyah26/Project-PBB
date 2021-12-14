@@ -46,6 +46,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Rincian"/>
+                <Button
+                    android:id="@+id/btncek"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cek"/>
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
