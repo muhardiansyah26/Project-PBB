@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vishnusivadas.advanced_httpurlconnection.PutData;
@@ -26,6 +27,11 @@ public class Register extends AppCompatActivity {
         txtPassword=findViewById(R.id.password);
 
         Button daftar = findViewById(R.id.daftar);
+        TextView login = findViewById(R.id.tvLoginhere);
+
+        login.setOnClickListener(v -> {
+            startActivity(new Intent(Register.this,MainActivity.class));
+        });
 
         daftar.setOnClickListener(v -> {
             String fullname,username,email,password;

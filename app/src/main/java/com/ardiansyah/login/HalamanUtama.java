@@ -13,7 +13,6 @@ public class HalamanUtama extends AppCompatActivity {
     private String KEY_LUAS ="LUAS";
     private String KEY_HARGA="60000";
     private String KEY_GAMBAR="lapangan1";
-    String KEY_VIDEO=" " ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
