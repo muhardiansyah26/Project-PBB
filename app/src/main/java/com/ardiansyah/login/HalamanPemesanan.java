@@ -60,12 +60,14 @@ public class HalamanPemesanan extends AppCompatActivity {
                                 String name = hasil.getString("username");
                                 String lapangan = hasil.getString("lapangan");
                                 String tanggal = hasil.getString("tanggal");
+                                String jam = hasil.getString("jam");
 
                                 list_data.add(new Get_Data(
                                         team,
                                         name,
                                         lapangan,
-                                        tanggal
+                                        tanggal,
+                                        jam
                                 ));
                             }
                             ListView listView=findViewById(R.id.list);
@@ -91,13 +93,14 @@ public class HalamanPemesanan extends AppCompatActivity {
 }
 
 class Get_Data{
-    String team="", nama="", lapangan="", tanggal="";
-    Get_Data(String team, String nama, String lapangan, String tanggal)
+    String team="", nama="", lapangan="", tanggal="",waktu="";
+    Get_Data(String team, String nama, String lapangan, String tanggal , String waktu)
     {
         this.team=team;
         this.nama=nama;
         this.lapangan=lapangan;
         this.tanggal=tanggal;
+        this.waktu=waktu;
     }
 
     public String getTeam() {
@@ -115,6 +118,8 @@ class Get_Data{
     public String getTanggal() {
         return tanggal;
     }
+
+    public String getWaktu() { return waktu; }
 }
 
 class Custom_adapter extends BaseAdapter
@@ -147,16 +152,18 @@ class Custom_adapter extends BaseAdapter
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view=layoutInflater.inflate(R.layout.list_item, null);
-        TextView textTeamname, textUsername , textLapangan, textTanggal;
+        TextView textTeamname, textUsername , textLapangan, textTanggal, textWaktu;
         textTeamname = view.findViewById(R.id.textTeamname);
         textUsername=view.findViewById(R.id.textUsername);
         textLapangan=view.findViewById(R.id.textLapangan);
         textTanggal=view.findViewById(R.id.textTanggal);
+        textWaktu=view.findViewById(R.id.textWaktu);
 
         textTeamname.setText(model.get(position).getTeam());
         textUsername.setText(model.get(position).getNama());
         textLapangan.setText(model.get(position).getLapangan());
         textTanggal.setText(model.get(position).getTanggal());
+        textWaktu.setText(model.get(position).getWaktu());
         return view;
     }
 }

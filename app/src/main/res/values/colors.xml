@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FFA500 </color>
     <color name="green">#00FF00</color>
+    <color name="judul">#0449c9</color>
+    <color name="basic">#0075af</color>
 </resources>

@@ -1,10 +1,14 @@
 package com.ardiansyah.login;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class HalamanUtama extends AppCompatActivity {
 
@@ -21,11 +25,11 @@ public class HalamanUtama extends AppCompatActivity {
         Button btnMenu1 = findViewById(R.id.btnMenu1);
         Button btnMenu2 = findViewById(R.id.btnMenu2);
         Button btnMenu3 = findViewById(R.id.btnMenu3);
-        Button btnCek = findViewById(R.id.btncek);
+        /*Button btnCek = findViewById(R.id.btncek);
 
         btnCek.setOnClickListener(v -> {
             startActivity(new Intent(HalamanUtama.this, HalamanPemesanan.class));
-        });
+        });*/
 
         btnMenu1.setOnClickListener(v -> {
             Intent menu1 = new Intent(HalamanUtama.this, DetailLapangan.class);
@@ -75,5 +79,26 @@ public class HalamanUtama extends AppCompatActivity {
             menu3.putExtra("video",namaVideo);
             startActivity(menu3);
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        setMode(item.getItemId());
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void setMode(int selectedMode) {
+        if (selectedMode == R.id.psnLapangan){
+            startActivity(new Intent(HalamanUtama.this,HalamanPemesanan.class));
+            Toast.makeText(this,"Halaman Pemesanan", Toast.LENGTH_LONG).show();
+        } else if (selectedMode == R.id.logout){
+            startActivity(new Intent(HalamanUtama.this, MainActivity.class));
+            Toast.makeText(this, "Terimakasih", Toast.LENGTH_LONG).show();
+        }
     }
 }

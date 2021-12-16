@@ -37,6 +37,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="satu"/>
+        <TextView
+            android:id="@+id/textWaktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="satu"/>
+
 
     </LinearLayout>
 

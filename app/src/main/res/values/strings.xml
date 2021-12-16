@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">Login</string>
+    <string name="app_name">FUTSAL</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="deskripsi1">Lapangan Socah yang berlokasi di Desa Socah memiliki luas lapangan 25x25 meter</string>
+    <string name="deskripsisocah">Ukuran Lapangan 25 x 25 meter</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

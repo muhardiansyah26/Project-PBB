@@ -10,7 +10,7 @@
     <VideoView
         android:id="@+id/videoView"
         android:layout_width="match_parent"
-        android:layout_height="156dp"
+        android:layout_height="200dp"
         tools:layout_editor_absoluteX="71dp"
         tools:layout_editor_absoluteY="47dp"
         android:layout_marginHorizontal="70dp"/>

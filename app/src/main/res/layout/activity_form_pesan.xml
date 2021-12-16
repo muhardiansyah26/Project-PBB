@@ -1,57 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:gravity="center_vertical"
+    android:background="@drawable/bg"
     tools:context=".FormPesan">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="FORM PEMESANAN"
-        android:gravity="center"
-        android:textSize="30dp"/>
-    <EditText
-        android:id="@+id/teamname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Team"
-        android:layout_marginHorizontal="40dp"/>
-    <EditText
-        android:id="@+id/user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nama Lengkap"
-        android:layout_marginHorizontal="40dp"/>
-    <TextView
-        android:id="@+id/namaLapangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Lapangan"
-        android:textSize="20dp"
-        android:layout_marginHorizontal="40dp"/>
-    <EditText
-        android:id="@+id/tanggal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Tanggal"
-        android:inputType="date"
-        android:layout_marginHorizontal="40dp"/>
-    <EditText
-        android:id="@+id/jam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Waktu"
-        android:inputType="time"
-        android:layout_marginHorizontal="40dp"/>
-    <Button
-        android:id="@+id/btnPemesanan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PESAN"/>
+        android:text="PESAN LAPANGAN"
+        android:textSize="30sp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="80dp"
+        android:textStyle="bold"
+        android:textColor="@color/basic"
+        android:layout_gravity="center_horizontal"
+        />
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardBackgroundColor="@color/basic"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/getGambar"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/lapangan1" />
+                <TextView
+                    android:id="@+id/namaLapangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Lapangan"
+                    android:layout_marginHorizontal="40dp"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"/>
+
+                <EditText
+                    android:id="@+id/teamname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Team"
+                    android:layout_marginHorizontal="40dp"/>
+                <EditText
+                    android:id="@+id/user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nama Lengkap"
+                    android:layout_marginHorizontal="40dp"/>
+
+                <EditText
+                    android:id="@+id/tanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Tanggal"
+                    android:inputType="date"
+                    android:textColor="@color/white"
+                    android:layout_marginHorizontal="40dp"/>
+                <EditText
+                    android:id="@+id/jam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Waktu"
+                    android:inputType="time"
+                    android:layout_marginHorizontal="40dp"/>
+
+                <Button
+                    android:id="@+id/btnPemesanan"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/basic"
+                    android:textStyle="bold"
+                    android:text="PESAN" />
+                <FrameLayout
+                    android:id="@+id/container1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="30dp">
+
+                </FrameLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
 
 </LinearLayout>

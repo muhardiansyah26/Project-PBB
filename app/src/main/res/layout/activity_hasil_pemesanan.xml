@@ -6,47 +6,132 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="@drawable/bg"
     tools:context=".HasilPemesanan">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BUKTI PEMESANAN"
-        android:textSize="30dp"/>
-    <TextView
-        android:id="@+id/hslTeam"
+        android:textSize="30sp"
+        android:layout_marginBottom="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/basic"
+        android:layout_gravity="center_horizontal"
+        />
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <TextView
-        android:id="@+id/hslNama"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <TextView
-        android:id="@+id/hslLapangan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <TextView
-        android:id="@+id/hslTanggal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <TextView
-        android:id="@+id/hslJam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <TextView
-        android:id="@+id/hslHarga"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="nama"/>
-    <Button
-        android:id="@+id/btnHasil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CEK"/>
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            app:cardBackgroundColor="@color/basic"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/getGambar"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/lapangan1" />
+                <TextView
+                    android:id="@+id/hslLapangan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="25sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Nama Lapangan"/>
+                <TextView
+                    android:id="@+id/hslTeam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Nama Team"/>
+                <TextView
+                    android:id="@+id/hslNama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Nama Penanggung Jawab"/>
+
+                <TextView
+                    android:id="@+id/hslTanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Tanggal Main"/>
+                <TextView
+                    android:id="@+id/hslJam"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Jam Main"/>
+                <TextView
+                    android:id="@+id/hslHarga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Jam Main"/>
+
+
+                <Button
+                    android:id="@+id/btnHasil"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/basic"
+                    android:textStyle="bold"
+                    android:text="CEK PESANANAN LAINNYA" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </ScrollView>
 
 </LinearLayout>
